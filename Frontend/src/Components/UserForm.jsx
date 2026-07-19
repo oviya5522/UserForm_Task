@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import UserList from "./UserList";
 
 const UserForm = () => {
+  const API_URL = import.meta.env.VITE_API_URL;
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [users, setUsers] = useState([]);
@@ -16,9 +17,9 @@ const UserForm = () => {
 
     try {
       if (editId === null) {
-        // POST - create user
+        // create user
         const response = await axios.post(
-          "http://localhost:5000/users",
+         `${API_URL}/users`,
           {
             name,
             password,
@@ -31,9 +32,9 @@ const UserForm = () => {
         setUsers([...users, response.data.user]);
 
       } else {
-        // PUT - update only name
+        //update only name
         const response = await axios.put(
-          `http://localhost:5000/users/${editId}`,
+         `${API_URL}/users/${editId}`,
           {
             name,
           }
@@ -68,7 +69,7 @@ const UserForm = () => {
     } else {
       try {
         const response = await axios.get(
-          "http://localhost:5000/users"
+         `${API_URL}/users`
         );
 
         setUsers(response.data);
@@ -89,7 +90,7 @@ const UserForm = () => {
   const handleDelete = async (id) => {
     try {
       const response = await axios.delete(
-        `http://localhost:5000/users/${id}`
+       `${API_URL}/users/${id}`
       );
 
       toast.success(response.data.message);
