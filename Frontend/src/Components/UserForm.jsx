@@ -64,11 +64,11 @@ const UserForm = () => {
   };
 
   const toggleUsers = async () => {
-    if (showUsers) {
+    if (showUsers) {  //if user are visible hide
       setShowUsers(false);
-    } else {
-      try {
-        const response = await axios.get(
+    } else {  
+      try { // if user are not visible fetch
+        const response = await axios.get(   
          `${API_URL}/users`
         );
 
@@ -159,7 +159,7 @@ const UserForm = () => {
 
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition"
+              className="w-full bg-green-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition"
             >
               {editId === null ? "Submit" : "Update"}
             </button>
