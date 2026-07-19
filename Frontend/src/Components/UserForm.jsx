@@ -159,7 +159,7 @@ const UserForm = () => {
 
             <button
               type="submit"
-              className="w-full bg-green-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition"
+              className="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition"
             >
               {editId === null ? "Submit" : "Update"}
             </button>
